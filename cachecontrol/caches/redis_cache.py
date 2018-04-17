@@ -6,12 +6,12 @@ from cachecontrol.cache import BaseCache
 
 def total_seconds(td):
     """Python 2.6 compatability"""
-    if hasattr(td, 'total_seconds'):
+    if hasattr(td, "total_seconds"):
         return int(td.total_seconds())
 
     ms = td.microseconds
     secs = (td.seconds + td.days * 24 * 3600)
-    return int((ms + secs * 10**6) / 10**6)
+    return int((ms + secs * 10 ** 6) / 10 ** 6)
 
 
 class RedisCache(BaseCache):
